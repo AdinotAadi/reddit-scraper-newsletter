@@ -25,15 +25,25 @@ if __name__ == "__main__":
 
     subHead = [subTitle]
 
-    file.writelines(sub + "\n")
+    file.writelines(sub + "\n\n")
 
     letterText = []
 
     i = 5
 
     letterText.append("*** Hot Submissions!!! ***\n")
-    for hot_submission in reddit.subreddit(f"{sub}").hot(limit=i):
-        letterText.append(hot_submission.title)
+    for hotSubmission in reddit.subreddit(f"{sub}").hot(limit=i):
+        letterText.append(hotSubmission.title + " " + hotSubmission.url)
+
+    letterText.append("\n\n")
+
+    letterText.append("*** New Submissions!!! ***\n")
+    for newSubmission in reddit.subreddit(f"{sub}").new(limit=i):
+        letterText.append(newSubmission.title + " " + newSubmission.url)
+
+    letterText.append("*** Controversial Submissions!!! ***\n")
+    for conSubmission in reddit.subreddit(f"{sub}").controversial(limit=i):
+        letterText.append(conSubmission.title + " " + conSubmission.url)
 
     j = 0
 
