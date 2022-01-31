@@ -15,7 +15,7 @@ i = 5
 
 class fetchArticle:
     def fetchHotArticle(self):
-        letterText.append(f"*** Your curation of {i} of the most Hot, Rising, New and Controversial Posts on your favorite Subreddit!!! ***\n")
+        letterText.append(f"*** Your curation of {i} of the most Hot, Rising, New and Controversial Posts on the subreddit {sub}!!! ***\n")
         for hotSubmission in reddit.subreddit(f"{sub}").hot(limit=i):
             letterText.append(hotSubmission.title + " " + "(" + hotSubmission.url + ")\n")
 
@@ -61,19 +61,13 @@ if __name__ == "__main__":
 
     t1 = time.time()
 
-    # print(reddit.read_only)
-
     file = open("Test.txt", "w+")
 
-    sub = "NuclearRevenge"
+    sub = "FoodPorn"
 
-    # subName = sub.display_name
     subTitle = sub.title
-    # subDescription = sub.description
 
     subHead = [subTitle]
-
-    file.writelines(sub + "\n\n")
 
     letterText = []
 
