@@ -1,6 +1,4 @@
 # Importing the required modules.
-from msilib.schema import Class
-from multiprocessing.connection import wait
 import praw
 import time
 import threading
