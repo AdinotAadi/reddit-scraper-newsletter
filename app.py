@@ -6,12 +6,13 @@ import threading
 # Creating a read-only reddit instance.
 reddit = praw.Reddit(
     # From reddit Third Party App Authorization, create a new app and fill the following.
-    client_id = "tu8goLFqiIjr1SfrnaVrDA",
-    client_secret = "BzBM7KW8iZ4HXVPFN4AP4yyM0tM-AA",
-    user_agent = "R-scraper-newsletter",
+    client_id = "",
+    client_secret = "",
+    user_agent = "",
 )
 
 i = 5
+j = 0
 
 class fetchArticle:
     def fetchHotArticle(self):
@@ -58,25 +59,17 @@ def writeToFile(i, j, file):
 
 # main function
 if __name__ == "__main__":
-
     t1 = time.time()
 
     file = open("Test.txt", "w+")
 
     sub = "FoodPorn"
-
     subTitle = sub.title
-
-    subHead = [subTitle]
-
     letterText = []
 
     fetchArticle()
 
-    j = 0
-
     writeToFile(i, j, file)
-
     file.close()    
     t2 = time.time()
     duration = t2 - t1
